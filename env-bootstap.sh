@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo '
 alias idea-keyboard="ibus-daemon -rd"
 alias mcinstall="mvn clean install -DskipTests"
