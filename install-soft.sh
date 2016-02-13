@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#todo: install docker
+
+apt-get install mc
 
 # install java
 add-apt-repository -y ppa:webupd8team/java
