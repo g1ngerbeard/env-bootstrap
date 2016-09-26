@@ -1,16 +1,48 @@
 #!/usr/bin/env bash
-#todo: install docker
 
-apt-get install mc
+echo 'Installing software...'
+
+CURRENT_USER = $1
+
+sudo apt-get -y install mc
+sudo apt-get -y install git
+sudo apt-get -y install vim-gnome
+
+sudo apt-get -y install zsh
+chsh -s $(which zsh)
+
+#oh-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+sudo apt-get -y install maven
+sudo apt-get -y install xclip
+sudo apt-get -y install expect
+
+# chrome
+sudo apt-get -y  install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+
+sudo apt-get -y install virtualbox
 
 # install java
-add-apt-repository -y ppa:webupd8team/java
-apt-get update
-apt-get -y install oracle-java8-installer
-apt-get -y install oracle-java8-set-default
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y install oracle-java8-installer
+sudo apt-get -y install oracle-java8-set-default
 
-apt-get -y install maven
+# Intellij Idea
+sudo /idea.sh
 
-apt-get -y install xclip
+#todo: install skype
 
-apt-get -y install expect
+# docker
+sudo ./docker.sh $CURRENT_USER
+
+# kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.6/bin/linux/amd64/kubectl
+sudo chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+
+# minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.10.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
