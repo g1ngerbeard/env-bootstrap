@@ -19,6 +19,7 @@ echo 'Generating SSH key pair...'
 echo -e  'y\n'|ssh-keygen -q -t rsa -N "" -f ~/.ssh/id_rsa
 
 git config --global user.name "Tima Kulishov"
+git config --global user.email "kulishovt@gmail.com"
 
 echo 'Copying vim config...'
 cp .vimrc ~
