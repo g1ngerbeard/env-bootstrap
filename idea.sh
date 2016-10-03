@@ -2,13 +2,11 @@
 
 echo "Installing IntelliJ IDEA..."
 
-ed=U
-
 # Fetch the most recent version
 VERSION=$(wget "https://www.jetbrains.com/intellij-repository/releases" -qO- | grep -P -o -m 1 "(?<=https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/BUILD/)[^/]+(?=/)")
 
 # Prepend base URL for download
-URL="https://download.jetbrains.com/idea/ideaI$ed-$VERSION.tar.gz"
+URL="https://download.jetbrains.com/idea/ideaIU-$VERSION.tar.gz"
 
 echo $URL
 
@@ -18,7 +16,7 @@ FILE=$(basename ${URL})
 # Set download directory
 DEST=~/Downloads/$FILE
 
-echo "Downloading idea-I$ed-$VERSION to $DEST..."
+echo "Downloading idea-IU-$VERSION to $DEST..."
 
 # Download binary
 wget -cO ${DEST} ${URL} --read-timeout=5 --tries=0
@@ -26,7 +24,7 @@ wget -cO ${DEST} ${URL} --read-timeout=5 --tries=0
 echo "Download complete!"
 
 # Set directory name
-DIR="/opt/idea-I$ed-$VERSION"
+DIR="/opt/idea-IU-$VERSION"
 
 echo "Installing to $DIR"
 
