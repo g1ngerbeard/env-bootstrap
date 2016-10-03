@@ -7,6 +7,7 @@ CURRENT_USER = $1
 sudo apt-get -y install mc
 sudo apt-get -y install git
 sudo apt-get -y install vim-gnome
+sudo apt-get -y install htop
 
 sudo apt-get -y install zsh
 chsh -s $(which zsh)
