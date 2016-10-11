@@ -4,10 +4,12 @@ echo 'Installing software...'
 
 CURRENT_USER = $1
 
+MINIKUBE_VERSION="v0.10.0"
+KUBECTL_VERSION="v1.3.6"
+
 sudo apt-get -y install mc
 sudo apt-get -y install git
 sudo apt-get -y install vim-gnome
-sudo apt-get -y install htop
 
 sudo apt-get -y install zsh
 chsh -s $(which zsh)
@@ -41,9 +43,9 @@ sudo /idea.sh
 sudo ./docker.sh $CURRENT_USER
 
 # kubectl
-curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.6/bin/linux/amd64/kubectl
+curl -O "https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl"
 sudo chmod +x kubectl
 sudo mv kubectl /usr/local/bin/kubectl
 
 # minikube
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.10.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+curl -Lo minikube "https://storage.googleapis.com/minikube/releases/$MINIKUBE_VERSION/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/"
